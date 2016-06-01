@@ -1,0 +1,87 @@
+
+<nav class="navbar navbar-default proNav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <brand-dir></brand-dir>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="glyphicon glyphicon-user"></a></li>
+          <li><a href="#" class="glyphicon glyphicon-envelope"></a></li>
+          <li><a href="#" class="glyphicon glyphicon-home"></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid" ng-controller="profileCtrl">
+    <div class="row">
+        <div class="container jumboPro">
+            <div class="jumbotron">
+                <div class="col-sm-2">
+                    <img src="img/profile_pic.jpg" alt="#" class="img-responsive img-thumbnail" />
+                </div>
+                <div class="col-sm-3">
+                    <h2 ng-model="profileInfo.user">{{profileInfo.user}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row proCon">
+        <div class="col-sm-3 col-sm-offset-1 menuMargin">
+            <div class="col-md-12 text-center navPad">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills nav-stacked" role="tablist">
+                    <li role="presentation" ng-show="activeTab==1" class="active"><a ui-sref="profile.aboutTab" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
+                    <li role="presentation" ng-click="activeTab=1" ng-hide="activeTab==1"><a ui-sref="profile.aboutTab" aria-controls="home" role="tab" data-toggle="tab">About</a></li>
+                    <li role="presentation" ng-show="activeTab==2" class="active"><a ui-sref="profile.contact" aria-controls="messages" role="tab" data-toggle="tab">Contact</a></li>
+                    <li role="presentation" ng-click="activeTab=2" ng-hide="activeTab==2"><a ui-sref="profile.contact" aria-controls="messages" role="tab" data-toggle="tab">Contact</a></li>
+                    <li role="presentation" ng-show="activeTab==3" class="active"><a ui-sref="profile.photos" aria-controls="settings" role="tab" data-toggle="tab">Photos</a></li>
+                    <li role="presentation" ng-click="activeTab=3" ng-hide="activeTab==3"><a ui-sref="profile.photos" aria-controls="settings" role="tab" data-toggle="tab">Photos</a></li>
+                </ul>
+
+                    <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <ui-view></ui-view>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="input-group col-sm-10">
+              <textarea class="form-control" rows="4" placeholder="Post to your timeline..." ng-model="inputModel"></textarea>
+              <button class="btn btn-default postBtn" type="button" ng-click="push_todo(inputModel)">Post</button>
+              <ul>
+                  <li ng-repeat="thing in things_todo track by $index" class="liPost">
+                      <img src="img/profile_pic.jpg" alt="#" class="img-responsive img-rounded col-sm-1" />
+                      <p ng-click="read(thing)" class="col-sm-9">{{thing}}</p>
+                      <button class="glyphicon glyphicon-remove col-sm-1 deleteSl" type="button" ng-click="delete($index)"></button>
+                      <button class="glyphicon glyphicon-pencil col-sm-1" type="button" ng-mousedown="edit_start($index)" ng-click="myStyle={'transition':'0.5s linear all', 'opacity':'0', 'opacity':'1'}"></button>
+                      <div class="input-group editInput" ng-style="myStyle" ng-show="myStyle">
+                          <div class="input-group-btn">
+                              <button class="btn btn-default" type="button" ng-mousedown="myStyle={'transition':'0.5s linear all', 'opacity':'1', 'opacity':'0'}">Edit</button>
+                              <button class="btn btn-default" type="button" ng-click="myStyle={'transition':'0.5s linear all', 'opacity':'1', 'opacity':'0'}">Cancel</button>
+                          </div>
+                          <input type="text" class="form-control" ng-model="things_todo[$index]" placeholder="Edit...">
+                      </div>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>

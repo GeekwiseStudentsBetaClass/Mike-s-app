@@ -1,0 +1,71 @@
+
+
+
+<div class="container-fluid" ng-controller="profileCtrl">
+    <div class="row">
+        <div class="container jumboPro">
+            <div class="jumbotron">
+                <div class="col-sm-3">
+                    <img src="img/tom.jpg" alt="#" class="img-responsive img-thumbnail" />
+                </div>
+                <div class="col-sm-3">
+                    <h3 ng-model="profileInfo.user">{{profileInfo.user}}Tom_Myspace</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row proCon">
+        <div class="col-sm-3 col-sm-offset-1 menuMargin">
+            <div class="col-md-12 text-center navPad">
+                <!-- Nav tabs -->
+                <ul class="nav nav-pills nav-stacked" role="tablist">
+                    <li role="presentation" ng-show="activeTab==1" class="active"><a ui-sref="profile.aboutTab" aria-controls="home" role="tab" class="mdl-navigation__link" data-toggle="tab">About</a></li>
+                    <li role="presentation" ng-click="activeTab=1" ng-hide="activeTab==1"><a ui-sref="profile.aboutTab" aria-controls="home" role="tab" class="mdl-navigation__link" data-toggle="tab">About</a></li>
+                    <li role="presentation" ng-show="activeTab==2" class="active"><a ui-sref="profile.contact" aria-controls="messages" role="tab" class="mdl-navigation__link" data-toggle="tab">Contact</a></li>
+                    <li role="presentation" ng-click="activeTab=2" ng-hide="activeTab==2"><a ui-sref="profile.contact" aria-controls="messages" role="tab" class="mdl-navigation__link" data-toggle="tab">Contact</a></li>
+                    <li role="presentation" ng-show="activeTab==3" class="active"><a ui-sref="profile.photos" aria-controls="settings" role="tab" class="mdl-navigation__link" data-toggle="tab">Photos</a></li>
+                    <li role="presentation" ng-click="activeTab=3" ng-hide="activeTab==3"><a ui-sref="profile.photos" aria-controls="settings" role="tab" class="mdl-navigation__link" data-toggle="tab">Photos</a></li>
+                </ul>
+
+                    <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <ui-view></ui-view>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="input-group col-sm-10">
+                <div>
+                    <textarea class="form-control" rows="4" placeholder="Join the discussion..." ng-model="inputModel"></textarea>
+                    <button class="btn btn-default postBtn" type="button" ng-click="push_todo(inputModel)">Post</button>
+                </div>
+              <ul>
+                  <li ng-repeat="thing in things_todo track by $index" class="liPost">
+                      <img src="img/profile_pic.jpg" alt="#" class="img-responsive img-rounded col-sm-1" />
+                      <p ng-click="read(thing)" class="col-sm-8">{{thing}}</p>
+                      <button class="glyphicon glyphicon-remove col-sm-1 deleteSl" type="button" ng-click="delete($index)"></button>
+                      <button class="glyphicon glyphicon-pencil col-sm-2" type="button" ng-mousedown="edit_start($index)" ng-click="myStyle={'transition':'0.5s linear all', 'opacity':'0', 'opacity':'1'}"></button>
+                      <div class="row rating" ng-repeat="vote in vote track by $index">
+                          <button class="glyphicon glyphicon-thumbs-up col-sm-1 col-sm-pull-8 likes" type="button" ng-click="plusOne($index)"></button><p class=" col-sm-1 col-sm-pull-8"> {{ vote.likes }} </p>
+                          <button class="glyphicon glyphicon-thumbs-down col-sm-1 col-sm-pull-8 dislikes" type="button" ng-click="minusOne($index)"></button><p class="col-sm-1 col-sm-pull-8"> {{ vote.dislikes }} </p>
+                      </div>
+                      <!-- <div class="rating" ng-repeat="vote in vote">
+                          <p class="likes" ng-click="plusOne($index)"> {{ vote.likes }} </p>
+                          <p class="dislikes" ng-click="minusOne($index)"> {{ vote.dislikes }} </p>
+                      </div> -->
+                      <div class="input-group editInput" ng-style="myStyle" ng-show="myStyle">
+                          <div class="input-group-btn">
+                              <button class="btn btn-default" type="button" ng-mousedown="myStyle={'transition':'0.5s linear all', 'opacity':'1', 'opacity':'0'}">Edit</button>
+                              <button class="btn btn-default" type="button" ng-click="myStyle={'transition':'0.5s linear all', 'opacity':'1', 'opacity':'0'}">Cancel</button>
+                          </div>
+                          <input type="text" class="form-control" ng-model="things_todo[$index]" placeholder="Edit...">
+                      </div>
+                      <hr class="soften"/>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
