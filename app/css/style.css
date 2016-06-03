@@ -1,0 +1,51 @@
+
+/*============================ UNIVERSAL =============================*/
+.container-fluid {
+  height:: 100%;
+  width: 100%;
+}
+.jumbotron {
+  text-align: center;
+}
+.features .fa {
+  font-size: 25px;
+}
+.features button {
+  margin-left: 15px;
+  width: 100%;
+  height: 100%;
+}
+.tabHeader {
+  text-align: center;
+  margin-left: 10px;
+}
+.tabHeader h1,h2,h3,h4 {
+  margin: 0 0 10px 0;
+}
+.tabSection{
+  text-align: center;
+}
+.tabSection .glyphicon {
+  margin-left: 20px;
+  font-size: 25px;
+}
+.tabSection .commentSection {
+  margin-top: 25px;
+}
+.tabSection .commentSection input {
+  width: 50%;
+}
+.tabSection .commentSection li {
+  list-style-type: none;
+  margin-top: 15px;
+}
+.tabSection button {
+  width: 80px;
+}
+
+
+/*=========================== HOME ==========================*/
+
+
+
+/*=========================== ABOUT ==========================*/
