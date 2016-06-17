@@ -1,26 +1,30 @@
-<div class="row">
-  <div class="col-md-12 tabHeader">
-    <h1>Implement Facebook login functionality</h1>
-    <p>Something everyone has been waiting for! This feature would allow you to login through Facebook, allowing you to use the information from your profile! You could pull in your profile picture and be easily recognizable to your friends on our app!</p>
-  </div>
-  <div class="col-md-12 tabSection">
-    <div class="col-sm-1 col-sm-offset-3">
-      <span class="glyphicon glyphicon-thumbs-up">{{numUpVoted}}</span><br/>
-      <button ng-click="addToLiked()">UpVote!</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 tabHeader">
+      <h1>Implement Facebook login functionality</h1>
+      <p>Something everyone has been waiting for! This feature would allow you to login through Facebook, allowing you to use the information from your profile! You could pull in your profile picture and be easily recognizable to your friends on our app!</p>
     </div>
-    <div class="col-sm-1 col-sm-offset-3">
-      <span class="glyphicon glyphicon-thumbs-down">{{numDownVoted}}</span><br/>
-      <button ng-click="addToDisliked()">DownVote!</button>
-    </div>
-    <div class="col-lg-12 commentSection">
-      <p>Please comment about this feature!</p><br/>
-      <input type="text" ng-model="inputText"><button ng-click="insertText(inputText)">Submit</button>
-    <ul>
-      <li ng-repeat="things in thisString">
-        <p>{{things}}   <button ng-click="deleteText()">Delete</button></p>
-      </li>
-    </ul>
-    <button ng-click="overallPopularity()">Overall Popularity for this feature!</button>{{totalPopularity}}
+    <div class="col-md-12 tabSection">
+      <div class="col-sm-2 col-sm-offset-4">
+        <span class="glyphicon glyphicon-thumbs-up">{{voteData.faceBookUp}}</span><br/>
+        <button ng-click="addToLiked()">UpVote!</button>
+      </div>
+      <div class="col-sm-2">
+        <span class="glyphicon glyphicon-thumbs-down">{{voteData.faceBookDown}}</span><br/>
+        <button ng-click="addToDisliked()">DownVote!</button>
+      </div>
+      <div class="col-lg-12 commentSection">
+        <p>Please leave a comment below about this feature!</p><br/>
+        <input type="text" ng-model="inputText" ng-keydown="insertText($event, inputText)">
+        <button ng-click="insertClick(inputText)">Submit</button>
+      </div>
+      <div class="row no-margin commentSection">
+        <ul>
+          <li ng-repeat="things in thisString track by $index">
+            <p>{{things}}<button style="float:right; margin-left: 10px;" ng-click="deleteText($index)">Delete</button></p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

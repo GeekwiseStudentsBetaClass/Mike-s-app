@@ -2,20 +2,28 @@
 <head lang="en">
   <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css" />
 </head>
-<div class="row" ng-controller="homeCtrl">
-    <div class="container">
-        <div class="jumbotron">
+<div class="row no-margin">
+    <div class="container homeContainer">
+        <div class="jumbotron homeJumbotron">
           <h2>Vote on these features</h2>
         </div>
         <div class="row">
-          <ul class="nav nav-pills nav-stacked col-md-3 features">
-            <li><button type="button" name="button" class="btn btn-default" ui-sref="home.facebook-login">Facebook Login</button></li>
-            <li><button type="button" name="button" class="btn btn-default" ui-sref="home.twitter-feed">Twitter Feed</button></li>
-            <li><button type="button" name="button" class="btn btn-default" ui-sref="home.weather-api">Local Weather <i class="fa fa-sun-o" aria-hidden="true"></i></button></li>
-            <li><button type="button" name="button" class="btn btn-default" ui-sref="home.threaded-comments">Threaded Comments</button></li>
-            <li><button type="button" name="button" class="btn btn-default" ui-sref="home.profile-picture">Profile Picture</button></li>
-          </ul>
-          <div class="col-sm-9">
+          <div class="col-md-2 col-md-offset-1 features">
+            <button type="button" name="button" class="btn btn-default" ui-sref="home.facebook-login">Facebook Login ({{totalPopularity}})</button>
+          </div>
+          <div class="col-md-2 features">
+            <button type="button" name="button" class="btn btn-default" ui-sref="home.twitter-feed">Twitter Feed ({{totalPopularity}})</button>
+          </div>
+          <div class="col-md-2 features">
+            <button type="button" name="button" class="btn btn-default" ui-sref="home.weather-api">Local Weather <i class="fa fa-sun-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="col-md-2 features">
+            <button type="button" name="button" class="btn btn-default" ui-sref="home.threaded-comments">Threaded Comments</button>
+          </div>
+          <div class="col-md-2 features">
+            <button type="button" name="button" class="btn btn-default" ui-sref="home.profile-picture">Profile Picture</button>
+          </div>
+          <div class="row">
             <ui-view></ui-view>
           </div>
         </div>

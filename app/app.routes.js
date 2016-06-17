@@ -9,11 +9,16 @@ angular.module('app')
                 templateUrl:'home/home.html',
                 controller:'homeCtrl'
             })
+            .state('user-info',{
+              url:'/user-profile',
+              templateUrl:'about/user.html',
+              controller:'userCtrl'
+            })
             // CREATING A CHILD STATE
             .state('home.facebook-login',{
                 url:'/facebook-login',
-                templateUrl:'tabs/facebook.html',
-                controller:'homeCtrl'
+                templateUrl: 'tabs/facebook.html',
+                controller:'homeCtrl',
             })
             .state('home.twitter-feed',{
                 url:'/twitter-feed',

@@ -1,6 +1,19 @@
 
 angular.module('app')
     .controller('homeCtrl', function homeCtrl($scope){
+        $scope.voteData =
+          {
+          faceBookUp: 300,
+          faceBookDown: 50,
+          twitterUp: 100,
+          twitterDown: 50,
+          weatherUp: 25,
+          weatherDown: 0,
+          threadedCommentsUp: 10,
+          threadedCommentsDown: 0,
+          profilePicUp: 5,
+          profilePicDown: 1
+          }
         $scope.list = true;
         $scope.hideContent = function() {
           $scope.list = false;
@@ -9,24 +22,17 @@ angular.module('app')
           $scope.list = true;
         };
         $scope.thisString = [];
-        $scope.insertText = function(input){
-          $scope.thisString.push(input);
-          $scope.inputText = '';
+        $scope.insertText = function($event, inputText){
+          if(inputText !=='' && $event.keyCode === 13){
+          $scope.thisString.push(inputText);
+          $scope.inputText = '';}
         };
-        $scope.deleteText = function(input){
-          $scope.thisString.splice('index',1);
+        $scope.insertClick = function(inputText){
+          if(inputText !==''){
+          $scope.thisString.push(inputText);
+          $scope.inputText = '';}
         };
-        $scope.numUpVoted = 9001;
-        $scope.numDownVoted = 9000;
-        $scope.totalPopularity;
-        $scope.addToLiked = function(input) {
-          $scope.numUpVoted += 1;
+        $scope.deleteText = function(index){
+          $scope.thisString.splice(index,1);
         };
-        $scope.addToDisliked = function() {
-          $scope.numDownVoted += 1;
-        }
-        $scope.overallPopularity = function() {
-          $scope.totalPopularity = ($scope.numUpVoted - $scope.numDownVoted);
-        }
-
 });
