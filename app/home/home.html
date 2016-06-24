@@ -8,20 +8,8 @@
           <h2>Vote on these features</h2>
         </div>
         <div class="row">
-          <div class="col-md-2 col-md-offset-1 features">
-            <button type="button" name="button" class="btn btn-default" ui-sref="home.facebook-login">Facebook Login ({{totalPopularity}})</button>
-          </div>
-          <div class="col-md-2 features">
-            <button type="button" name="button" class="btn btn-default" ui-sref="home.twitter-feed">Twitter Feed ({{totalPopularity}})</button>
-          </div>
-          <div class="col-md-2 features">
-            <button type="button" name="button" class="btn btn-default" ui-sref="home.weather-api">Local Weather <i class="fa fa-sun-o" aria-hidden="true"></i></button>
-          </div>
-          <div class="col-md-2 features">
-            <button type="button" name="button" class="btn btn-default" ui-sref="home.threaded-comments">Threaded Comments</button>
-          </div>
-          <div class="col-md-2 features">
-            <button type="button" name="button" class="btn btn-default" ui-sref="home.profile-picture">Profile Picture</button>
+          <div class="text-center">
+            <button data-ng-repeat="things in myArray | orderBy: '-totalVote'" type="button" name="button" class="btn btn-default features" ui-sref="{{things.nameUi}}">{{things.name}}</button>
           </div>
           <div class="row">
             <ui-view></ui-view>

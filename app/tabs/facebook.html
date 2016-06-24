@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid featureTab">
   <div class="row">
     <div class="col-md-12 tabHeader">
       <h1>Implement Facebook login functionality</h1>
@@ -6,11 +6,11 @@
     </div>
     <div class="col-md-12 tabSection">
       <div class="col-sm-2 col-sm-offset-4">
-        <span class="glyphicon glyphicon-thumbs-up">{{voteData.faceBookUp}}</span><br/>
-        <button ng-click="addToLiked()">UpVote!</button>
+        <span class="glyphicon glyphicon-thumbs-up">{{myArray[0].totalVote}}</span><br/>
+        <button ng-click="addToLiked('totalVote')">UpVote!</button>
       </div>
       <div class="col-sm-2">
-        <span class="glyphicon glyphicon-thumbs-down">{{voteData.faceBookDown}}</span><br/>
+        <span class="glyphicon glyphicon-thumbs-down">{{faceBookDown}}</span><br/>
         <button ng-click="addToDisliked()">DownVote!</button>
       </div>
       <div class="col-lg-12 commentSection">

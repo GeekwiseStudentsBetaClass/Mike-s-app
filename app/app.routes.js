@@ -23,21 +23,21 @@ angular.module('app')
             .state('home.twitter-feed',{
                 url:'/twitter-feed',
                 templateUrl:'tabs/twitter-feed.html',
-                controller:'homeCtrl'
+                controller:'twitterCtrl'
             })
             .state('home.weather-api',{
                 url:'/weather-api',
                 templateUrl:'tabs/weather.html',
-                controller:'homeCtrl'
+                controller:'weatherCtrl'
             })
             .state('home.threaded-comments',{
                 url:'/threaded-comments',
                 templateUrl:'tabs/threaded-comments.html',
-                controller:'homeCtrl'
+                controller:'threadedCtrl'
             })
             .state('home.profile-picture',{
                 url:'/profile-picture',
                 templateUrl:'tabs/profile-picture.html',
-                controller:'homeCtrl'
+                controller:'profileCtrl'
             })
     });

@@ -1,6 +1,28 @@
-<div class="row">
+<div class="row featureTab">
   <div class="col-md-12 tabHeader">
     <h1>Personal Profile Picture!</h1>
     <p>Have you ever been on our app and people just don't know who you are? Maybe you have even run into your friends on our app but neither of you knew it! Take away the mystery with this new feature!</p>
+    <div class="col-md-12 tabSection">
+      <div class="col-sm-2 col-sm-offset-4">
+        <span class="glyphicon glyphicon-thumbs-up">{{profileUp}}</span><br/>
+        <button ng-click="addToLiked()">UpVote!</button>
+      </div>
+      <div class="col-sm-2">
+        <span class="glyphicon glyphicon-thumbs-down">{{profileDown}}</span><br/>
+        <button ng-click="addToDisliked()">DownVote!</button>
+      </div>
+      <div class="col-lg-12 commentSection">
+        <p>Please leave a comment below about this feature!</p><br/>
+        <input type="text" ng-model="inputText" ng-keydown="insertText($event, inputText)">
+        <button ng-click="insertClick(inputText)">Submit</button>
+      </div>
+      <div class="row no-margin commentSection">
+        <ul>
+          <li ng-repeat="things in thisString track by $index">
+            <p>{{things}}<button style="float:right; margin-left: 10px;" ng-click="deleteText($index)">Delete</button></p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

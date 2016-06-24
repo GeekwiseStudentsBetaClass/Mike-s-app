@@ -1,5 +1,8 @@
 
 /*============================ UNIVERSAL =============================*/
+body {
+  background-color: rgba(0,0,200,.1);
+}
 .no-padding {
   padding: 0;
 }
@@ -10,23 +13,31 @@
   height: 100%;
   width: 100%;
 }
-.homeContainer {
-
+.homeContainer h2{
+  color: #fff;
+  background-color: rgba(0,0,0,.5);
+  width: 35%;
+  margin: 0 auto;
 }
 .jumbotron {
   text-align: center;
-  height: 200px;
+  height: 300px;
+  width:100%;
 }
 .homeJumbotron {
   background-image: url('../img/home_page_jumbo.jpg');
   background-size: cover;
   background-position: center;
 }
+.featureTab {
+}
 .features .fa {
   font-size: 15px;
 }
-.features button {
-  width: 100%;
+.features {
+  border: black solid 1px;
+  background-color: rgba(0,0,255,.25);
+  width: 15%;
 }
 .tabHeader {
   text-align: center;
@@ -63,7 +74,7 @@
   margin: 0 auto;
   margin-top: 10px;
   width: 75%;
-  background-color: green;
+  background-color: rgba(0,0,255,.1);
   height: 100%;
   padding: 15px;
   overflow-x: scroll;
@@ -71,8 +82,10 @@
 .tabSection button {
   width: 100px;
 }
-@media (min-width: 768px) {
-  .features button {
+@media (max-device-width: 768px) {
+  .features {
+    border: black solid 1px;
+    background-color: rgba(0,0,255,.25);
     font-size: 12px;
     width: 20%;
     display: inline-block;
